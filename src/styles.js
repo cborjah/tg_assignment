@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.li`
-  height: 160px;
+  padding: 20px 10px;
   background-color: lightgrey;
   display: flex;
   align-items: center;
@@ -11,39 +11,34 @@ export const Container = styled.li`
 
 export const CheckBox = styled.div`
   margin: 0 20px;
-  height: 100px;
-  width: 100px;
+  height: 30px;
+  width: 30px;
   padding: 0;
   outline: 0;
-  border-width: ${props => props.borderWidth};
-  border-style: ${props => props.borderStyle};
-  border-color: ${props => props.borderColor};
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${props => props.buttonColor};
   border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => (props.isActive ? props.color : "white")};
+  background-color: ${props => (props.isActive ? props.buttonColor : "white")};
 
   &:focus, &:active {
     outline: 0;
   }
-
-  .checkMark {
-    color: ${props => props.checkMarkColor};
-    font-size: 80px;
-  }
 `;
 
 export const RadioBtn = styled.button`
-  height: 100px;
-  width: 100px;
+  height: 34px;
+  width: 34px;
   margin: 0 20px;
   padding: 0;
   outline: 0;
-  border-width: 10px;
+  border-width: 4px;
   border-style: solid;
-  border-color: blue;
-  border-radius: 50px;
+  border-color: ${props => props.buttonColor};
+  border-radius: 17px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,8 +50,8 @@ export const RadioBtn = styled.button`
   }
 
   .radioCircle {
-    color: blue;
-    font-size: 60px;
+    color: ${props => props.buttonColor};
+    font-size: 16px;
   }
 `;
 
@@ -64,5 +59,6 @@ export const ButtonText = styled.span`
   display: flex;
   flex: 1;
   justify-content: flex-start;
-  font-size: 20px;
+  font-size: 15px;
+  cursor: default;
 `

@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 import { Container, CheckBox, RadioBtn, ButtonText } from "./styles";
-import CheckMarkIcon from './CheckMarkIcon';
+import CheckMarkIcon from "./CheckMarkIcon";
 
 library.add(faCircle);
 
 class Button extends Component {
-  state = { isActive: null };
+  state = { isActive: false };
 
   handleOnClick = () => {
     this.setState({ isActive: !this.state.isActive }, () => {
@@ -20,26 +20,44 @@ class Button extends Component {
 
   render() {
     const { isActive } = this.state;
-    const { type, text } = this.props;
+    const {
+      type,
+      text,
+      containerStyles,
+      buttonStyles,
+      textStyles
+    } = this.props;
 
-    if (type === 'checkMark') {
+    if (type === "checkMark") {
       return (
-        <Container onClick={this.handleOnClick}>
-          <CheckBox isActive={isActive} {...this.props}>
-            {isActive ? <CheckMarkIcon /> : null}
+        <Container>
+          <CheckBox
+            onClick={this.handleOnClick}
+            isActive={isActive}
+            style={buttonStyles}
+            {...this.props}
+          >
+            {isActive ? <CheckMarkIcon {...this.props} /> : null}
           </CheckBox>
-          <ButtonText>{this.props.text}</ButtonText>
+          <ButtonText style={textStyles}>{this.props.text}</ButtonText>
         </Container>
       );
     }
 
-    if (type === 'radio') {
+    if (type === "radio") {
       return (
-        <Container onClick={this.handleOnClick}>
-          <RadioBtn isActive={isActive} {...this.props}>
-            {isActive ? <FontAwesomeIcon icon="circle" className="radioCircle" /> : null}
+        <Container style={containerStyles}>
+          <RadioBtn
+            onClick={this.handleOnClick}
+            isActive={isActive}
+            style={buttonStyles}
+            {...this.props}
+          >
+            {isActive ? (
+              <FontAwesomeIcon icon="circle" className="radioCircle" />
+            ) : null}
           </RadioBtn>
-          <ButtonText>{text}</ButtonText>
+          <ButtonText style={textStyles}>{text}</ButtonText>
         </Container>
       );
     }
@@ -47,16 +65,27 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-  color: PropTypes.string,
+  buttonColor: PropTypes.string,
+  checkMarkColor: PropTypes.string,
+  innerCircleSize: PropTypes.string,
   text: PropTypes.string,
   onSelect: PropTypes.func,
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  containerStyles: PropTypes.object,
+  buttonStyles: PropTypes.obejct,
+  textStyles: PropTypes.object
 };
 
 Button.defaultProps = {
-  color: 'blue',
-  text: 'Text goes here',
+  buttonColor: "blue",
+  checkMarkColor: "white",
+  checkMarkSize: "22px",
+  innerCircleSize: "16px",
+  text: "Text goes here",
   onSelect: () => null,
+  containerStyles: {},
+  buttonStyles: {},
+  textStyles: {}
 };
 
 export default Button;

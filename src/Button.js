@@ -73,7 +73,8 @@ Button.propTypes = {
   type: PropTypes.string.isRequired,
   containerStyles: PropTypes.object,
   buttonStyles: PropTypes.obejct,
-  textStyles: PropTypes.object
+  textStyles: PropTypes.object,
+  alignText: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -85,7 +86,8 @@ Button.defaultProps = {
   onSelect: () => null,
   containerStyles: {},
   buttonStyles: {},
-  textStyles: {}
+  textStyles: {},
+  alignText: "flex-start"
 };
 
 export default Button;

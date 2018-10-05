@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
+// --------------- Container ---------------
 export const Container = styled.li`
   padding: 20px 10px;
   background-color: lightgrey;
@@ -9,6 +10,7 @@ export const Container = styled.li`
   ${"" /* border-bottom: 1px solid; */};
 `;
 
+// --------------- Check Box Button ---------------
 export const CheckBox = styled.div`
   margin: 0 20px;
   height: 30px;
@@ -23,12 +25,21 @@ export const CheckBox = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${props => (props.isActive ? props.buttonColor : "white")};
+  transition: background-color 0.3s ease-in-out;
+  animation: ${props => {
+    if (props.isActive === true) {
+      return `${rise} ease-in-out 0.2s forwards`;
+    } else if (props.isActive === false) {
+      return `${shrink} ease-in-out 0.2s forwards`;
+    }
+  }};
 
   &:focus, &:active {
     outline: 0;
   }
 `;
 
+// --------------- Radio Button ---------------
 export const RadioBtn = styled.button`
   height: 34px;
   width: 34px;
@@ -43,6 +54,12 @@ export const RadioBtn = styled.button`
   justify-content: center;
   align-items: center;
   background-color: "white";
+  animation: ${props => {
+    if (props.isActive === true) {
+      return `${rise} ease-in-out 0.2s forwards`;
+    } else if (props.isActive === false) {
+      return `${shrink} ease-in-out 0.2s forwards`;
+    }
   }}
 
   :focus, :active {
@@ -52,13 +69,66 @@ export const RadioBtn = styled.button`
   .radioCircle {
     color: ${props => props.buttonColor};
     font-size: 16px;
+    animation: ${() => `${grow} ease-out 0.2s forwards`};
   }
 `;
 
+// --------------- Text ---------------
 export const ButtonText = styled.span`
   display: flex;
   flex: 1;
-  justify-content: flex-start;
+  justify-content: ${props => props.alignText};
   font-size: 15px;
   cursor: default;
-`
+`;
+
+// --------------- Check Mark SVG ---------------
+export const Polyline = styled.polyline`
+  stroke-dasharray: 275;
+  stroke-dashoffset: 275;
+  animation: ${() => `${dash} 0.5s linear forwards`};
+  animation-delay: 0.2s;
+`;
+
+// --------------- Animation Keyframes ---------------
+
+const dash = keyframes`
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+`;
+
+const rise = keyframes`
+  from {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  to {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+`;
+
+const shrink = keyframes`
+  from {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  to {
+    transform: scale(1);
+    box-shadow: none;
+  }
+`;
+
+const grow = keyframes`
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+`;

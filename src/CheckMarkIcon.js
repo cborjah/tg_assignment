@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { Polyline } from './styles';
+
 const CheckMarkIcon = ({ checkMarkColor, checkMarkSize }) => (
   <svg
     width={checkMarkSize}
@@ -24,7 +26,7 @@ const CheckMarkIcon = ({ checkMarkColor, checkMarkSize }) => (
         stroke={checkMarkColor}
         strokeWidth="12"
       >
-        <polyline id="Path-2" points="20 63.3333333 41.6666667 85 85 20" />
+        <Polyline id="Path-2" points="20 63.3333333 41.6666667 85 85 20" />
       </g>
     </g>
   </svg>

@@ -82,6 +82,8 @@ export const RadioBtn = styled.button`
   border-style: solid;
   border-color: ${props => props.buttonColor};
   border-radius: ${props => {
+    // Calculates border radius based on outerCircleSize prop. Returns half of
+    // value to maintain circle shape.
     const size = parseInt(props.outerCircleSize.slice(0, -2));
     return size / 2 + "px";
   }};

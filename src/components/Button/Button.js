@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-// Styled using styled-components library
+// Styled using styled-components library, CheckBox and RadioBtn are button elements
 import { CheckBox, RadioBtn } from "./styles";
 import { CheckMarkIcon } from "./";
 

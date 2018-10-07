@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// Styled using styled-components library
 import { Polyline } from "./styles";
 
 const CheckMarkIcon = ({ checkMarkColor, checkMarkSize }) => (

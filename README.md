@@ -57,5 +57,5 @@ $ yarn test
 ```
 
 ## Built Using
-* [styled-components](https://github.com/styled-components/styled-components) - For styles
+* [styled-components](https://github.com/styled-components/styled-components) - Utilizes tagged template literals and CSS for styling components.
 * [Font Awesome](https://github.com/FortAwesome/Font-Awesome) - Uses circle icon for radio button

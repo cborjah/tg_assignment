@@ -9,8 +9,8 @@ Install modules then start local server.
 **App.js is only used to demo the button component.**
 
 ```
-yarn
-yarn start
+$ yarn
+$ yarn start
 ```
 
 ## Props
@@ -25,12 +25,16 @@ type={"radio"}
 * **onPress** - a function called when button is pressed
 * **buttonColor** - (string) sets button's border color for both types, fill color for checkbox type and color for radio button's inner circle
 
+### Checkbox button
+
 * **checkBoxSize** - (string) sets height and width for checkbox button
 * **checkMarkColor** - (string) sets color of checkmark
-* **checkMarkSize** - (string) sets size of checkMark
+* **checkMarkSize** - (string) sets size of checkmark
+
+### Radio button
 
 * **outerCircleSize** - (string) sets size of button
-* **innerCircleSize** - (string) sets size of  button's inner circle
+* **innerCircleSize** - (string) sets size of inner circle
 
 ## Example Usage
 
@@ -49,9 +53,9 @@ type={"radio"}
 Run line below to test Button and CheckMarkIcon components
 
 ```
-yarn test
+$ yarn test
 ```
 
 ## Built Using
-* [styled-components] (https://github.com/styled-components/styled-components) - For styles
-* [Font Awesome] (https://github.com/FortAwesome/Font-Awesome) - Uses circle icon for radio button
+* [styled-components](https://github.com/styled-components/styled-components) - For styles
+* [Font Awesome](https://github.com/FortAwesome/Font-Awesome) - Uses circle icon for radio button

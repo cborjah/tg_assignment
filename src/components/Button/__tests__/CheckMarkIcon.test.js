@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { shallow } from "enzyme";
 
-import CheckMarkIcon from "../CheckMarkIcon";
+import { CheckMarkIcon } from "../CheckMarkIcon";
 
 describe("CheckMarkIcon component", () => {
   it("renders successfully", () => {

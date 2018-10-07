@@ -1,17 +1,17 @@
 import styled, { keyframes } from "styled-components";
 
 // --------------- Container ---------------
-export const Container = styled.li`
-  padding: 20px 10px;
-  background-color: lightgrey;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid;
-  ${"" /* border-bottom: 1px solid; */};
-`;
+// export const Container = styled.li`
+//   padding: 20px 10px;
+//   background-color: lightgrey;
+//   display: flex;
+//   align-items: center;
+//   border-top: 1px solid;
+//   ${"" /* border-bottom: 1px solid; */};
+// `;
 
 // --------------- Check Box Button ---------------
-export const CheckBox = styled.div`
+export const CheckBox = styled.button`
   margin: 0 20px;
   height: 30px;
   width: 30px;
@@ -71,15 +71,6 @@ export const RadioBtn = styled.button`
     font-size: 16px;
     animation: ${() => `${grow} ease-out 0.2s forwards`};
   }
-`;
-
-// --------------- Text ---------------
-export const ButtonText = styled.span`
-  display: flex;
-  flex: 1;
-  justify-content: ${props => props.alignText};
-  font-size: 15px;
-  cursor: default;
 `;
 
 // --------------- Check Mark SVG ---------------

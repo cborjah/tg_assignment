@@ -20,14 +20,13 @@ class Button extends Component {
 
   render() {
     const { isActive } = this.state;
-    const { type, buttonStyles } = this.props;
+    const { type, buttonColor } = this.props;
 
     if (type === "checkMark") {
       return (
         <CheckBox
           onClick={this.handleOnClick}
           isActive={isActive}
-          style={buttonStyles}
           {...this.props}
         >
           {isActive ? <CheckMarkIcon {...this.props} /> : null}
@@ -40,7 +39,6 @@ class Button extends Component {
         <RadioBtn
           onClick={this.handleOnClick}
           isActive={isActive}
-          style={buttonStyles}
           {...this.props}
         >
           {isActive ? (
@@ -54,21 +52,23 @@ class Button extends Component {
 
 Button.propTypes = {
   buttonColor: PropTypes.string,
+  checkBoxSize: PropTypes.string,
   checkMarkColor: PropTypes.string,
   checkMarkSize: PropTypes.string,
+  outerCircleSize: PropTypes.string,
   innerCircleSize: PropTypes.string,
   onPress: PropTypes.func,
   type: PropTypes.string.isRequired,
-  buttonStyles: PropTypes.object
 };
 
 Button.defaultProps = {
   buttonColor: "blue",
+  checkBoxSize: "30px",
   checkMarkColor: "white",
   checkMarkSize: "22px",
+  outerCircleSize: "32px",
   innerCircleSize: "16px",
   onPress: () => null,
-  buttonStyles: {}
 };
 
 export default Button;

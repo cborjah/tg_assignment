@@ -3,8 +3,8 @@ import styled, { keyframes } from "styled-components";
 // --------------- Check Box Button ---------------
 export const CheckBox = styled.button`
   margin: 0 20px;
-  height: 30px;
-  width: 30px;
+  height: ${props => props.checkBoxSize};
+  width: ${props => props.checkBoxSize};
   padding: 0;
   outline: 0;
   border-width: 1px;
@@ -31,15 +31,18 @@ export const CheckBox = styled.button`
 
 // --------------- Radio Button ---------------
 export const RadioBtn = styled.button`
-  height: 34px;
-  width: 34px;
+  height: ${props => props.outerCircleSize};
+  width: ${props => props.outerCircleSize};
   margin: 0 20px;
   padding: 0;
   outline: 0;
   border-width: 4px;
   border-style: solid;
   border-color: ${props => props.buttonColor};
-  border-radius: 17px;
+  border-radius: ${props => {
+    const size = parseInt(props.outerCircleSize.slice(0, -2));
+    return (size / 2) + "px";
+  }};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +61,7 @@ export const RadioBtn = styled.button`
 
   .radioCircle {
     color: ${props => props.buttonColor};
-    font-size: 16px;
+    font-size: ${props => props.innerCircleSize};
     animation: ${() => `${grow} ease-out 0.2s forwards`};
   }
 `;

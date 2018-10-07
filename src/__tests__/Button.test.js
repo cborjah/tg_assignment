@@ -11,14 +11,15 @@ describe('Button component', () => {
     ReactDOM.render(<Button type="checkMark" />, div);
   });
 
-  it('passes isActive state and buttonColor props to CheckBox', () => {
-    const wrapper = shallow(<Button type="checkMark" buttonColor="red" />);
+  it('passes isActive state, buttonColor and checkBoxSize props to CheckBox', () => {
+    const wrapper = shallow(<Button type="checkMark" buttonColor="red" checkBoxSize={"100px"} />);
 
     expect(wrapper.props().isActive).toEqual(false);
     expect(wrapper.props().buttonColor).toEqual("red");
+    expect(wrapper.props().checkBoxSize).toEqual("100px");
   });
 
-  it('passes checkMarkColor and checkMarkSize props to CheckMarkIcon', () => {
+  it('passes checkMarkColor, checkMarkSize props to CheckMarkIcon', () => {
     const wrapper = shallow(<Button type="checkMark" checkMarkColor={"black"} checkMarkSize={"20px"} />);
 
     wrapper.setState({ isActive: true });
@@ -29,12 +30,23 @@ describe('Button component', () => {
     expect(CheckMarkIcon.props().checkMarkSize).toEqual("20px");
   });
 
-  it('passes the isActive state and buttonColor prop to RadioBtn', () => {
-    const wrapper = shallow(<Button type="radio" buttonColor="red" />);
+  it('passes the isActive state, buttonColor and outerCircleSize props to RadioBtn', () => {
+    const wrapper = shallow(<Button type="radio" buttonColor="red" outerCircleSize={"50px"} />);
 
     expect(wrapper.props().isActive).toEqual(false);
     expect(wrapper.props().buttonColor).toEqual("red");
+    expect(wrapper.props().outerCircleSize).toEqual("50px");
   });
+
+  it('passes innerCircleSize prop to FontAwesomeIcon', () => {
+    const wrapper = shallow(<Button type="radio" innerCircleSize={"50px"} />);
+
+    wrapper.setState({ isActive: true });
+
+    const FontAwesomeIcon = wrapper.find('FontAwesomeIcon');
+
+    expect(FontAwesomeIcon.props().innerCircleSize).toEqual("50px");
+  })
 
   describe('when clicked', () => {
     it('invokes onPress prop', () => {
@@ -73,7 +85,4 @@ describe('Button component', () => {
       expect(wrapper.find('FontAwesomeIcon').length).toEqual(1);
     });
   });
-
-  // What is innerCircleSize used for?
-  // Does the inner circle resize itself?
 });

@@ -38,7 +38,8 @@ CheckMarkIcon.propTypes = {
 };
 
 CheckMarkIcon.defaultProps = {
-  checkMarkColor: "white"
+  checkMarkColor: "white",
+  checkMarkSize: "22px"
 };
 
 export default CheckMarkIcon;

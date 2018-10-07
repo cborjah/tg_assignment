@@ -1,15 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-// --------------- Container ---------------
-// export const Container = styled.li`
-//   padding: 20px 10px;
-//   background-color: lightgrey;
-//   display: flex;
-//   align-items: center;
-//   border-top: 1px solid;
-//   ${"" /* border-bottom: 1px solid; */};
-// `;
-
 // --------------- Check Box Button ---------------
 export const CheckBox = styled.button`
   margin: 0 20px;
@@ -75,6 +65,8 @@ export const RadioBtn = styled.button`
 
 // --------------- Check Mark SVG ---------------
 export const Polyline = styled.polyline`
+  height: 80px;
+  width: 90%;
   stroke-dasharray: 275;
   stroke-dashoffset: 275;
   animation: ${() => `${dash} 0.5s linear forwards`};

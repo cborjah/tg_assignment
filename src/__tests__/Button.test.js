@@ -11,11 +11,22 @@ describe('Button component', () => {
     ReactDOM.render(<Button type="checkMark" />, div);
   });
 
-  it('passes the isActive state and buttonColor prop to CheckBox', () => {
+  it('passes isActive state and buttonColor props to CheckBox', () => {
     const wrapper = shallow(<Button type="checkMark" buttonColor="red" />);
 
     expect(wrapper.props().isActive).toEqual(false);
     expect(wrapper.props().buttonColor).toEqual("red");
+  });
+
+  it('passes checkMarkColor and checkMarkSize props to CheckMarkIcon', () => {
+    const wrapper = shallow(<Button type="checkMark" checkMarkColor={"black"} checkMarkSize={"20px"} />);
+
+    wrapper.setState({ isActive: true });
+
+    const CheckMarkIcon = wrapper.find('CheckMarkIcon');
+
+    expect(CheckMarkIcon.props().checkMarkColor).toEqual("black");
+    expect(CheckMarkIcon.props().checkMarkSize).toEqual("20px");
   });
 
   it('passes the isActive state and buttonColor prop to RadioBtn', () => {

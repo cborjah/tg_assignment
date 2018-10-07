@@ -13,7 +13,6 @@ class Button extends Component {
   state = { isActive: false };
 
   handleOnClick = () => {
-    console.log('you pressed');
     this.setState({ isActive: !this.state.isActive }, () => {
       this.props.onPress();
     });
@@ -56,6 +55,7 @@ class Button extends Component {
 Button.propTypes = {
   buttonColor: PropTypes.string,
   checkMarkColor: PropTypes.string,
+  checkMarkSize: PropTypes.string,
   innerCircleSize: PropTypes.string,
   onPress: PropTypes.func,
   type: PropTypes.string.isRequired,

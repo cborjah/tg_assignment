@@ -30,23 +30,14 @@ describe('Button component', () => {
     expect(CheckMarkIcon.props().checkMarkSize).toEqual("20px");
   });
 
-  it('passes the isActive state, buttonColor and outerCircleSize props to RadioBtn', () => {
-    const wrapper = shallow(<Button type="radio" buttonColor="red" outerCircleSize={"50px"} />);
+  it('passes the isActive state, buttonColor, innerCircleSize and outerCircleSize props to RadioBtn', () => {
+    const wrapper = shallow(<Button type="radio" buttonColor="red" innerCircleSize={"40px"} outerCircleSize={"50px"} />);
 
     expect(wrapper.props().isActive).toEqual(false);
     expect(wrapper.props().buttonColor).toEqual("red");
     expect(wrapper.props().outerCircleSize).toEqual("50px");
+    expect(wrapper.props().innerCircleSize).toEqual("40px");
   });
-
-  it('passes innerCircleSize prop to FontAwesomeIcon', () => {
-    const wrapper = shallow(<Button type="radio" innerCircleSize={"50px"} />);
-
-    wrapper.setState({ isActive: true });
-
-    const FontAwesomeIcon = wrapper.find('FontAwesomeIcon');
-
-    expect(FontAwesomeIcon.props().innerCircleSize).toEqual("50px");
-  })
 
   describe('when clicked', () => {
     it('invokes onPress prop', () => {

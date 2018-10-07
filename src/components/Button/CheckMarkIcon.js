@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Polyline } from './styles';
+import { Polyline } from "./styles";
 
 const CheckMarkIcon = ({ checkMarkColor, checkMarkSize }) => (
   <svg
@@ -42,4 +42,4 @@ CheckMarkIcon.defaultProps = {
   checkMarkSize: "22px"
 };
 
-export default CheckMarkIcon;
+export { CheckMarkIcon };

@@ -1,23 +1,31 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
+// Styled using styled-components library
+import { CheckBox, RadioBtn } from "./styles";
+import { CheckMarkIcon } from "./";
+
+// Font Awesome used for radio button
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
-
-import { CheckBox, RadioBtn } from "./styles";
-import CheckMarkIcon from "./CheckMarkIcon";
-
 library.add(faCircle);
 
 class Button extends Component {
   state = { isActive: false };
 
+  // Changes state to activate animations, then invokes onPress prop.
   handleOnClick = () => {
     this.setState({ isActive: !this.state.isActive }, () => {
       this.props.onPress();
     });
   };
 
+  /*
+  Renders one of two buttons depending on the 'type' prop.
+  CheckBox and RadioBtn are styled 'button' elements.
+  Returns 'checkMark' button by default.
+  */
   render() {
     const { isActive } = this.state;
     const { type } = this.props;
@@ -71,4 +79,4 @@ Button.defaultProps = {
   onPress: () => null
 };
 
-export default Button;
+export { Button };

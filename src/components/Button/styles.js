@@ -45,7 +45,6 @@ const grow = keyframes`
 
 // --------------- Check Box Button ---------------
 export const CheckBox = styled.button`
-  margin: 0 20px;
   height: ${props => props.checkBoxSize};
   width: ${props => props.checkBoxSize};
   padding: 0;
@@ -67,7 +66,8 @@ export const CheckBox = styled.button`
     }
   }};
 
-  &:focus, &:active {
+  &:focus,
+  &:active {
     outline: 0;
   }
 `;
@@ -76,7 +76,6 @@ export const CheckBox = styled.button`
 export const RadioBtn = styled.button`
   height: ${props => props.outerCircleSize};
   width: ${props => props.outerCircleSize};
-  margin: 0 20px;
   padding: 0;
   outline: 0;
   border-width: 4px;
@@ -84,7 +83,7 @@ export const RadioBtn = styled.button`
   border-color: ${props => props.buttonColor};
   border-radius: ${props => {
     const size = parseInt(props.outerCircleSize.slice(0, -2));
-    return (size / 2) + "px";
+    return size / 2 + "px";
   }};
   display: flex;
   justify-content: center;

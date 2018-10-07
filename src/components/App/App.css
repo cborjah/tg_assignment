@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: lightgrey;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonContainer {
+  margin: 0 20px;
+}

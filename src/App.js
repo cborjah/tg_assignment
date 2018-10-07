@@ -7,8 +7,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Button type={"checkMark"} text={"Check box"} />
-        <Button type={"radio"} text={"Radio button"} />
+        <Button type={"checkMark"} />
+        <Button type={"radio"} />
       </div>
     );
   }

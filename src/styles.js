@@ -1,5 +1,48 @@
 import styled, { keyframes } from "styled-components";
 
+// --------------- Animation Keyframes ---------------
+
+const dash = keyframes`
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+`;
+
+const rise = keyframes`
+  from {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  to {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+`;
+
+const shrink = keyframes`
+  from {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+
+  to {
+    transform: scale(1);
+    box-shadow: none;
+  }
+`;
+
+const grow = keyframes`
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+`;
+
 // --------------- Check Box Button ---------------
 export const CheckBox = styled.button`
   margin: 0 20px;
@@ -62,7 +105,7 @@ export const RadioBtn = styled.button`
   .radioCircle {
     color: ${props => props.buttonColor};
     font-size: ${props => props.innerCircleSize};
-    animation: ${() => `${grow} ease-out 0.2s forwards`};
+    animation: ${grow} ease-out 0.2s forwards;
   }
 `;
 
@@ -72,49 +115,6 @@ export const Polyline = styled.polyline`
   width: 90%;
   stroke-dasharray: 275;
   stroke-dashoffset: 275;
-  animation: ${() => `${dash} 0.5s linear forwards`};
+  animation: ${dash} 0.5s linear forwards;
   animation-delay: 0.2s;
-`;
-
-// --------------- Animation Keyframes ---------------
-
-const dash = keyframes`
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-`;
-
-const rise = keyframes`
-  from {
-    transform: scale(1);
-    box-shadow: none;
-  }
-
-  to {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  }
-`;
-
-const shrink = keyframes`
-  from {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  }
-
-  to {
-    transform: scale(1);
-    box-shadow: none;
-  }
-`;
-
-const grow = keyframes`
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
-  }
 `;

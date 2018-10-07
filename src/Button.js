@@ -20,7 +20,7 @@ class Button extends Component {
 
   render() {
     const { isActive } = this.state;
-    const { type, buttonColor } = this.props;
+    const { type } = this.props;
 
     if (type === "checkMark") {
       return (
@@ -58,7 +58,7 @@ Button.propTypes = {
   outerCircleSize: PropTypes.string,
   innerCircleSize: PropTypes.string,
   onPress: PropTypes.func,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 };
 
 Button.defaultProps = {
@@ -68,7 +68,7 @@ Button.defaultProps = {
   checkMarkSize: "22px",
   outerCircleSize: "32px",
   innerCircleSize: "16px",
-  onPress: () => null,
+  onPress: () => null
 };
 
 export default Button;
